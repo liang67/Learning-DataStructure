@@ -106,6 +106,7 @@ bool ListInsertHead(LinkList L, int elem)
     return true;
 }
 
+// 尾插法
 bool ListInsertTail(LinkList L, int elem)
 {
     LNode *p = malloc(sizeof(LNode)); // new node;
@@ -125,9 +126,25 @@ bool ListInsertTail(LinkList L, int elem)
     return true;
 }
 
-bool ListDelete(LinkList L, int i, int *elem)
+// 删除第i个节点；i从1开始，返回值用指针返回
+bool ListDelete(LinkList L, int i, int *data)
 {
-    return false;
+    int j = 0;
+    LNode *p = L; // p指向头节点
+    while (j < i - 1 && p)
+    {
+        p = p->next;
+        j++;
+    }
+    if (j > i - 1 || !p)
+        return false;
+
+    // 删除第i个元素
+    LNode *tmp = p->next; // tmp为待删除结点
+    p->next = tmp->next;  // 把p的next执行待删除结点的next
+    *data = tmp->data;
+    free(tmp);
+    return true;
 }
 
 // 使用回调函数来访问链表

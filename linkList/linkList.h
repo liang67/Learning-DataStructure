@@ -35,7 +35,7 @@ bool ListInsertHead(LinkList L, int elem);
 
 bool ListInsertTail(LinkList L, int elem);
 
-bool ListDelete(LinkList L, int i, int *elem);
+bool ListDelete(LinkList L, int i, int *data);
 
 void ListVisit(LinkList L, void (*visit)(int));
 

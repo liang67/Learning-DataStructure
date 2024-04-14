@@ -28,7 +28,7 @@ int main(int argc, char const *argv[])
 
     printf("Now has %d elements\n", ListLength(L));
 
-    LNode *p = ListGetElem(L, 1);
+    LNode *p = ListGetElem(L, 4);
     if (p)
     {
         printf("get element 1 is %d\n", p->data);
@@ -39,6 +39,7 @@ int main(int argc, char const *argv[])
     }
 
     ListVisit(L, myPrint);
+    printf("\nVisit end\n");
 
     ClearList(L);
     if (ListEmpty(L))
@@ -53,6 +54,17 @@ int main(int argc, char const *argv[])
 
     printf("Now has %d elements\n", ListLength(L));
     ListVisit(L, myPrint);
+    printf("\nVisit end\n");
+
+    int data;
+    if (ListDelete(L, 10, &data))
+    {
+        printf("Delete the 10th element: %d\n",data);
+        printf("Now has %d elements\n", ListLength(L));
+    } else {
+        printf("Delete ERROR\n");
+    }
+    
 
     return 0;
 }
